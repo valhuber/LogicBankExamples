@@ -1,10 +1,10 @@
-This project is a complement to [logic-bank](https://github.com/valhuber/logic-bank),
+This project is a complement to [logicbank](https://github.com/valhuber/logicbank),
 which explains the concepts of rules, as well being used for 
-development of `logic-bank`.
+development of `logicbank`.
 
 Here we focus on the practicalities of installation and configuration,
 with 2 (unrelated) samples:
-* `nw` (same as in [logic-bank](https://github.com/valhuber/logic-bank))
+* `nw` (same as in [logicbank](https://github.com/valhuber/logicbank))
 * `banking`
 
 This page shows the common install / configure tasks common to both.
@@ -13,7 +13,7 @@ which is optional but recommended since it makes it really
 easy to explore your database.
 
 
-## Installing `logic-bank-examples`
+## Installing `logicbank-examples`
 You can install this pre-configured example
 as described below.
 
@@ -37,9 +37,9 @@ Issues?  [Try here](https://github.com/valhuber/fab-quick-start/wiki/Mac-Python-
 
 Using your IDE or command line: 
 ```
-# fork https://github.com/valhuber/logic-bank-examples.git -> yourname
-git clone https://github.com/yourname/logic-bank-examples.git
-cd logic-bank-examples
+# fork https://github.com/valhuber/logicbankexamples.git -> yourname
+git clone https://github.com/yourname/logicbank-examples.git
+cd logicbank-examples
 virtualenv venv
 # windows: .\venv\Scripts\activate
 source venv/bin/activate
@@ -80,7 +80,7 @@ virtualenv venv
 # windows .env\Scripts\activate
 source venv/bin/activate
 
-(venv)$ pip install -i https://test.pypi.org/simple/ logic-bank
+(venv)$ pip install -i https://test.pypi.org/simple/ logicbank
 (venv)$ pip install SQLAlchemy
 (venv)$ pip install sqlacodegen
 
@@ -91,7 +91,7 @@ source venv/bin/activate
 ```
 
 #### Creating a New Project
-We'll recreate the `logic-bank-examples`.
+We'll recreate the `logicbankexamples`.
 We'll follow the same structure to make things definite,
 so you can compare.
 Of course, use whatever structure you like,
@@ -126,7 +126,7 @@ The first parameter identifies your database location;
 consult the sqlacodegen documentation.
 
 ##### Important notes about models - mind the relationships
-Both `logic-bank` and `fab-quickstart` depend on
+Both `logicbank` and `fab-quickstart` depend on
 relationships.  Ideally, they exist in your database,
 in which as `sqlcodegen` will find them.  If that's
 not practical, SQLAlchemy also lets to define them in your models:
