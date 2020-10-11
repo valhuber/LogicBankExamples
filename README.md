@@ -13,7 +13,7 @@ which is optional but recommended since it makes it really
 easy to explore your database.
 
 
-## Installing `logicbank-examples`
+## Installing `logicbankexamples`
 You can install this pre-configured example
 as described below.
 
@@ -37,11 +37,10 @@ Issues?  [Try here](https://github.com/valhuber/fab-quick-start/wiki/Mac-Python-
 
 Using your IDE or command line: 
 ```
-# fork https://github.com/valhuber/logicbankexamples.git -> yourname
-git clone https://github.com/yourname/logicbank-examples.git
-cd logicbank-examples
+# fork https://github.com/valhuber/logicbank-examples.git -> yourname
+git clone https://github.com/yourname/logicbankexamples.git
+cd logicbankexamples
 virtualenv venv
-# windows: .\venv\Scripts\activate
 source venv/bin/activate
 (venv)$ pip install -r requirements.txt
 ```
@@ -59,7 +58,6 @@ that depict logic execution and chaining:
 You can also run the pre-created fab application:
 ```
 (venv)$ cd ../../nw_app
-(venv)$ #  windows set FLASK_APP=app
 (venv)$ export FLASK_APP=app
 (venv)$ flask run
 ```
@@ -146,7 +144,7 @@ as shown in the diagrams below.
 
 ##### Declare rules using Python
 Logic is declared as spreadsheet-like rules as shown below
-from  [`nw/nw_logic/nw_rules_bank.py`](nw/nw_logic/nw_rules_bank.py),
+from  [`nw/nw_logic/nw_rules_bank.py`](nw/logic/rules_bank.py),
 which implements the *check credit* requirement:
 ```python
 def activate_basic_check_credit_rules():
@@ -176,14 +174,12 @@ It activates the rules using this import:
 from nw.nw_logic import session  # opens db, activates logic listener <--
 ```
  
-This executes [`nw/nw_logic/__init__.py`](nw/nw_logic/__init__.py),
+This executes [`nw/logic/__init__.py`](nw/logic/__init__.py),
 which sets up the rule engine:
 ```python
 by_rules = True  # True => use rules, False => use hand code (for comparison)
 if by_rules:
-    rule_bank_setup.setup(session, engine)     # setup rules engine
-    activate_basic_check_credit_rules()        # loads rules above
-    rule_bank_setup.validate(session, engine)  # checks for cycles, etc
+    LogicBank.activate(session=session, activator=declare_logic)
 else:
     # ... conventional after_flush listeners (to see rules/code contrast)
 ```
@@ -220,7 +216,7 @@ You should see a structure as shown in the screen shot in the next section.
 We now have a well-formed empty project.  We now need to acquire and __configure a database__, set up SQLAlchemy ORM __`models.py`__, and define our pages with __`views.py`__.
 
 #### 2 - Configure Database
-Update your `nw-app/config.py` file to denote this database name (illustrated below).
+Update your `nw/basic_web_app/config.py` file to denote this database name (illustrated below).
 Your project will look something like this:
 
 <figure><img src="images/nw/nw-setup.png" width="700"><figcaption>Project Structure</figcaption></figure>
@@ -281,4 +277,4 @@ Start your browser [here](http://127.0.0.1:5000/).
 
 ## Status
 
-`nw` running, `banking` running for funds_transfer
+`nw` running, `banking` under development
