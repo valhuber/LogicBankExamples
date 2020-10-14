@@ -239,7 +239,7 @@ We now have a well-formed empty project.  We now need to acquire and __configure
 Update your `nw/basic_web_app/config.py` file to denote this database name (illustrated below).
 Your project will look something like this:
 
-<figure><img src="images/nw/nw-setup.png" width="700"><figcaption>Project Structure</figcaption></figure>
+<figure><img src="main/images/nw/nw-setup.png" width="700"><figcaption>Project Structure</figcaption></figure>
 
 ##### Key FAB inputs can become tedious: `models.py` and `views.py`
 FAB requires that we edit __2 key files__ to make our "empty" project interact with the database.  These can get __tedious,__ due to per-page code required for _each_ table / page.  For more information, [see here](https://github.com/valhuber/fab-quick-start/wiki/Tedious-per-page-code).
