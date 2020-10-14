@@ -99,7 +99,7 @@ virtualenv venv
 # windows venv\Scripts\activate
 source venv/bin/activate
 
-(venv)$ pip install -i https://test.pypi.org/simple/ logicbank
+(venv)$ pip install logicbank
 (venv)$ pip install SQLAlchemy
 (venv)$ pip install sqlacodegen
 
@@ -294,8 +294,3 @@ You've now created a app with a dozen pages or so; run it like this:
 ```
 Start your browser [here](http://127.0.0.1:5000/).
 
-***
-
-## Status
-
-`nw` running, `banking` under development
