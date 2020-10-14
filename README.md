@@ -138,8 +138,7 @@ we already have a sqlite database in our `nw/db` folder
 
 ```
 (venv)$ cd db
-(venv)$ sqlacodegen sqlite:///nw.db --noviews > nw/nw_logic/app/models.py
-(venv)$ sqlacodegen sqlite:///Northwind_small.sqlite --noviews > ../nw_logic/models.py
+(venv)$ sqlacodegen sqlite:///database.db --noviews > nw/nw_logic/app/models.py
 ```
 The first parameter identifies your database location;
 consult the sqlacodegen documentation.
