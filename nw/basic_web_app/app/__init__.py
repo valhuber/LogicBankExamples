@@ -4,6 +4,8 @@ import sys
 
 from flask import Flask
 from flask_appbuilder import AppBuilder, SQLA
+from flask_appbuilder.models.sqla.interface import SQLAInterface
+from flask_appbuilder.api import ModelRestApi
 
 use_rules = True
 
@@ -36,6 +38,8 @@ if use_rules:
     from logic_bank.rule_bank import rule_bank_setup
     from nw.logic import declare_logic
 
+    from logic_bank.logic_bank import LogicBank
+
 """
  Logging configuration
 """
@@ -48,23 +52,21 @@ app.config.from_object("config")
 db = SQLA(app)
 
 appbuilder = AppBuilder(app, db.session)
+unparsedTables = dict([(name, cls) for name, cls in models.__dict__.items() if isinstance(cls, type)])
+
+for modelName in unparsedTables:
+    className = str(unparsedTables[modelName])
+    if '.models.' in className and not modelName.startswith('Ab'):
+        apiBuildObj = {
+            "resource_name": modelName.lower(),
+            "datamodel": SQLAInterface(unparsedTables[modelName])
+        }
+        apiName = modelName + 'ModelApi'
+        apiClass = type(apiName, (ModelRestApi,), apiBuildObj)
+        print(modelName)
+        appbuilder.add_api(apiClass)
 
 if use_rules:
-    rule_bank_setup.setup(db.session, db.engine)
-    declare_logic()
-    rule_bank_setup.validate(db.session, db.engine)  # checks for cycles, etc
-
-"""
-from sqlalchemy.engine import Engine
-from sqlalchemy import event
-
-#Only include this for SQLLite constraints
-@event.listens_for(Engine, "connect")
-def set_sqlite_pragma(dbapi_connection, connection_record):
-    # Will force sqllite contraint foreign keys
-    cursor = dbapi_connection.cursor()
-    cursor.execute("PRAGMA foreign_keys=ON")
-    cursor.close()
-"""
+    LogicBank.activate(session=db.session, activator=declare_logic)
 
 from . import views
