@@ -216,7 +216,7 @@ with minimal coding.  Typical fab pages can look like this:
 1. __Predictive joins:__ favorite field of each parent is shown (product _name_ - not the foreign key `product_id_`)
 1. __Ids last:__ such boring fields are not shown on lists, and at the end on other pages
 
-<figure><img src="images/nw/generated-page.png" width="700"><figcaption>Multi-Table Page</figcaption></figure>
+<figure><img src="https://github.com/valhuber/LogicBank/blob/main/images/fab.png" width="700"><figcaption>Multi-Table Page</figcaption></figure>
 
 
 ***
