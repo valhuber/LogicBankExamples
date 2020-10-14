@@ -167,7 +167,7 @@ Logic is declared as spreadsheet-like rules as shown below
 from  [`nw/nw_logic/nw_rules_bank.py`](nw/logic/rules_bank.py),
 which implements the *check credit* requirement:
 ```python
-def activate_basic_check_credit_rules():
+def declare_logic():
     """ Check Credit Requirement:
         * the balance must not exceed the credit limit,
         * where the balance is the sum of the unshipped order totals
