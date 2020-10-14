@@ -134,7 +134,7 @@ For existing databases, consider using
 [`sqlacodegen`](https://pypi.org/project/sqlacodegen/).
 Here, we'll use `nw` as our example;
 we already have a sqlite database in our `nw/db` folder
-([download a copy](/nw/db/nw.db)) so:
+([download a copy](/nw/db/database.db)) so:
 
 ```
 (venv)$ cd db
