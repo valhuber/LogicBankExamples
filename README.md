@@ -13,57 +13,77 @@ which is optional but recommended since it makes it really
 easy to explore your database.
 
 
-## Installing `logicbankexamples`
-You can install this pre-configured example
-as described below.
+## Installing
 
-#### Install Python Pre-reqs
-To get started, you will need:
-
-* Pythonv3.8 (Relies on `from __future__ import annotations`, so requires Python 3.8)
-
-   * Run the windows installer; on mac/Unix, consider [using brew](https://opensource.com/article/19/5/python-3-default-mac#what-to-do)
-   
-* virtualenv - see [here](https://www.google.com/url?q=https%3A%2F%2Fpackaging.python.org%2Fguides%2Finstalling-using-pip-and-virtual-environments%2F%23creating-a-virtual-environment&sa=D&sntz=1&usg=AFQjCNEu-ZbYfqRMjNQ0D0DqU1mhFpDYmw)  (e.g.,  `pip install virtualenv`)
-
-* An IDE - any will do
-(I've used [PyCharm](https://www.jetbrains.com/pycharm/download) and [VSCode](https://code.visualstudio.com), install notes [here](https://github.com/valhuber/fab-quick-start/wiki/IDE-Setup)),
-though different install / generate / run instructions apply for running programs.
-
-Issues?  [Try here](https://github.com/valhuber/fab-quick-start/wiki/Mac-Python-Install-Issues).
-
-
-#### Installing this sample
-
-Using your IDE or command line: 
+### Verify Pre-reqs: Python 3.8, virtualenv, pip3
+Ensure you have these pre-reqs
 ```
-# fork https://github.com/valhuber/logicbank-examples.git -> yourname
-git clone https://github.com/yourname/logicbankexamples.git
-cd logicbankexamples
+python --version
+# requires 3.8 or higher
+
+pip --version
+# version 19.2.3 or higher... you might be using pip3
+
+pyenv --version
+# 1.2.19 or higher
+```
+
+If you are missing any, install them as [described here](https://github.com/valhuber/LogicBank/wiki/Explore-Logic-Bank).
+We also recommend an IDE such as PyCharm, VSCode, etc.
+
+### Install `logicbankexamples`
+In your IDE or Command Line:
+
+```
+# optionally fork, and then
+git clone https://github.com/valhuber/LogicBankExamples.git
+cd LogicBankExamples
 virtualenv venv
-# windows venv\Scripts\activate
+# windows: .\venv\Scripts\activate
 source venv/bin/activate
-(venv)$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-#### Verification
+#### Verify and Run
 
-Either in your IDE or the command line,
-you can run tests and examine the logs
-that depict logic execution and chaining:
+##### Run `basic_web_app`
+
 ```
-(venv)$ cd nw/trans_tests
-(venv)$ python upd_order_reuse.py
+cd LogicBankExamples
+cd nw/basic_web_app
+# windows set FLASK_APP=app
+export FLASK_APP=app
+flask run
+```
+You then start the app (use **new window**) with [`http://127.0.0.1:5000/`]( http://127.0.0.1:5000/)
+> **Login** (upper right): user = admin, password = p
+
+You can
+1. Navigate to Order 11011 (a _multi-page_ web app)
+    * Click **Menu > Customer List** 
+    * Click the **magnifying glass** for the first customer
+    * Click the **List Order tab**
+    * Click the **magnifying glass* for Order **11011**
+2. Click Edit so you can make changes
+3. Change the Shipped Date
+4. Click save
+5. Verify logic enforcement
+    * The web app has been [configured](https://github.com/valhuber/LogicBank/wiki/Flask-App-Builder-Integration) to activate the rules
+    * The logic for this update [is interesting](https://github.com/valhuber/LogicBank/wiki/home#example-ship-order---pruning-adjustment-and-cascade) -
+    check out the console log
+
+##### Run the `nw/tests`
+Run the `nw/tests` programs under your IDE or the
+command line; start with `add_order` and `upd_order_shipped,`
+and see the [walk-throughs here](https://github.com/valhuber/LogicBank/wiki).
+
+```
+cd nw/tests
+python add_order.py
 ```
 
-You can also run the pre-created fab application:
-```
-(venv)$ cd ../../nw_app
-(venv)$ export FLASK_APP=app
-(venv)$ flask run
-```
-Start your browser [here](http://127.0.0.1:5000/),
-login as admin, p.
+> Note: the **log** depicts logic execution
+
 
 ## Project Setup Cookbook
 This project has already been set up.  Here's how we did it.
