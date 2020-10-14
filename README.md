@@ -229,7 +229,7 @@ Create a default empty FAB app:
 ```
 You will then be prompted for the project name and your db engine type.  When prompted:
 * Use the default engine
-* Name the project `nw_app`
+* Name the project `basic_web_app`
 
 You should see a structure as shown in the screen shot in the next section.
 
@@ -258,7 +258,7 @@ to create the `views.py` file from the `app/models.py` file (__hit enter__ to ac
 ```
 (venv)$ fab-quick-start run --favorites="name description" --non_favorites="id" > app/views.py
 ```
-This overwrites your `nw/nw-app/app/views.py` file.  For more information, see the [FAB Quick Start Utility docs](https://github.com/valhuber/fab-quick-start#readme).
+This overwrites your `nw/basic_web_app/app/views.py` file.  For more information, see the [FAB Quick Start Utility docs](https://github.com/valhuber/fab-quick-start#readme).
 
 #### 5 - Create Admin
 The FAB system can create tables in your database for authenticating and authorizing users (tables such as `ab_user`, `ab_user_role`, etc).  You create these as follows (Username: `admin`, Password: `p`):
@@ -287,7 +287,7 @@ sqlite3 nw.db  # mac only
 #### 6 - Run `nw` App
 You've now created a app with a dozen pages or so; run it like this:
 ```
-(venv)$ # still cd'd to nw-app
+(venv)$ # still cd'd to basic_web_app
 (venv)$ export FLASK_APP=app
 (venv)$ flask run
 ```
