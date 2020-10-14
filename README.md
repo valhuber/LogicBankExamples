@@ -3,8 +3,8 @@ which explains the concepts of rules, as well being used for
 development of `logicbank`.
 
 Here we focus on the practicalities of installation and configuration,
-with 2 (unrelated) samples:
-* `nw` (same as in [logicbank](https://github.com/valhuber/logicbank))
+with 2 (unrelated) samples (copied from LogicBank):
+* `nw`
 * `banking`
 
 This page shows the common install / configure tasks common to both.
