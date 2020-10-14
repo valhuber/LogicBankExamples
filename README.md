@@ -41,6 +41,7 @@ Using your IDE or command line:
 git clone https://github.com/yourname/logicbankexamples.git
 cd logicbankexamples
 virtualenv venv
+# windows venv\Scripts\activate
 source venv/bin/activate
 (venv)$ pip install -r requirements.txt
 ```
@@ -75,7 +76,7 @@ mkdir nw
 cd nw
 virtualenv venv
 # configure SCS to ignore venv
-# windows .env\Scripts\activate
+# windows venv\Scripts\activate
 source venv/bin/activate
 
 (venv)$ pip install -i https://test.pypi.org/simple/ logicbank
