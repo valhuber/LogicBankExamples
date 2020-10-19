@@ -13,13 +13,20 @@ which is optional but recommended since it makes it really
 easy to explore your database.
 
 
-## Installing
 
-### Verify Pre-reqs: Python 3.8, virtualenv, pip3
-Ensure you have these pre-reqs
+## Installation
+First, follow the instructions to verify / install Python, then install Logic Bank.
+
+### Python Installation
+
+The first section below verifies whether your Python environment is current.
+The following section explains how to install a current Python environment.
+
+#### Verify Pre-reqs: Python 3.8, virtualenv, pip3
+Ensure you have these pre-reqs:
 ```
 python --version
-# requires 3.8 or higher
+# requires 3.8 or higher (Relies on `from __future__ import annotations`, so requires Python 3.8)
 
 pip --version
 # version 19.2.3 or higher... you might be using pip3
@@ -27,22 +34,38 @@ pip --version
 pyenv --version
 # 1.2.19 or higher
 ```
+#### Install Python (if required)
+If you are missing any, install them as described here.  Skip this step if your pre-reqs are fine.
 
-If you are missing any, install them as [described here](https://github.com/valhuber/LogicBank/wiki/Explore-Logic-Bank).
-We also recommend an IDE such as PyCharm, VSCode, etc.
+To install Python:
 
-### Install `logicbankexamples`
+* Python3.8 
+
+   * Run the windows installer
+   * On mac/Unix, consider [using homebrew](https://brew.sh/), as described
+[here](https://opensource.com/article/19/5/python-3-default-mac#what-to-do)
+   
+* virtualenv - see [here](https://www.google.com/url?q=https%3A%2F%2Fpackaging.python.org%2Fguides%2Finstalling-using-pip-and-virtual-environments%2F%23creating-a-virtual-environment&sa=D&sntz=1&usg=AFQjCNEu-ZbYfqRMjNQ0D0DqU1mhFpDYmw)  (e.g.,  `pip install virtualenv`)
+
+* An IDE - optional - any will do (I've used [PyCharm](https://www.jetbrains.com/pycharm/download) and [VSCode](https://code.visualstudio.com), install notes [here](https://github.com/valhuber/fab-quick-start/wiki/IDE-Setup)), though different install / generate / run instructions apply for running programs
+
+Issues?  [Try here](https://github.com/valhuber/fab-quick-start/wiki/Mac-Python-Install-Issues).
+
+
+### Install LogicBankExamples
 In your IDE or Command Line:
 
 ```
-# optionally fork, and then
-git clone https://github.com/valhuber/LogicBankExamples.git
+# optionally fork, and then (WARNING - remove hyphens if you download the zip)
+git clone https://github.com/valhuber/LogicBank.git
 cd LogicBankExamples
+# windows: python -m venv venv
 virtualenv venv
 # windows: .\venv\Scripts\activate
 source venv/bin/activate
 pip install -r requirements.txt
 ```
+> **Warning -** if you just download the zip, *be sure* to remove the hyphen from the name.
 
 #### Verify and Run
 
@@ -68,14 +91,14 @@ You can
 3. Change the Shipped Date
 4. Click save
 5. Verify logic enforcement
-    * The web app has been [configured](https://github.com/valhuber/LogicBank/wiki/Flask-App-Builder-Integration) to activate the rules
-    * The logic for this update [is interesting](https://github.com/valhuber/LogicBank/wiki/home#example-ship-order---pruning-adjustment-and-cascade) -
+    * The web app has been [configured](../../wiki/Flask-App-Builder-Integration) to activate the rules
+    * The logic for this update [is interesting](../../wiki/Ship-Order) -
     check out the console log
 
 ##### Run the `nw/tests`
 Run the `nw/tests` programs under your IDE or the
 command line; start with `add_order` and `upd_order_shipped,`
-and see the [walk-throughs here](https://github.com/valhuber/LogicBank/wiki).
+and see the [walk-throughs here](../../wiki/home#logic-execution-watch-react-chain).
 
 ```
 cd nw/tests
@@ -83,7 +106,6 @@ python add_order.py
 ```
 
 > Note: the **log** depicts logic execution
-
 
 ## Project Setup Cookbook
 This project has already been set up.  Here's how we did it.
