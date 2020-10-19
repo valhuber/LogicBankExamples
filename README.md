@@ -57,7 +57,7 @@ In your IDE or Command Line:
 
 ```
 # optionally fork, and then (WARNING - remove hyphens if you download the zip)
-git clone https://github.com/valhuber/LogicBank.git
+git clone https://github.com/valhuber/LogicBankExamples.git
 cd LogicBankExamples
 # windows: python -m venv venv
 virtualenv venv
