@@ -10,12 +10,13 @@ on relationships...
 
 """
 
+from logic_bank import logic_bank  # import this first - import ordering
+
 import sqlalchemy_utils
 from sqlalchemy import Boolean, Column, DECIMAL, DateTime, Float, ForeignKey, Integer, LargeBinary, String, UniqueConstraint
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.testing import db
-import logic_bank.rule_bank.rule_bank_withdraw  # FIXME design prevents circular imports (why?)
 
 Base = declarative_base()
 metadata = Base.metadata
@@ -166,6 +167,27 @@ class EmployeeTerritory(Base):
     Id = Column(String(8000), primary_key=True)
     EmployeeId = Column(ForeignKey('Employee.Id'), nullable=False)
     TerritoryId = Column(ForeignKey('Territory.Id'))
+
+
+class OrderClass(Base):
+    __tablename__ = 'OrderZ'
+
+    Id = Column(Integer, primary_key=True)  #, autoincrement=True)
+    CustomerId = Column(ForeignKey('Customer.Id'))
+    EmployeeId = Column(ForeignKey('Employee.Id'))
+    OrderDate = Column(String(8000))
+    RequiredDate = Column(String(8000))
+    ShippedDate = Column(String(8000))
+    ShipVia = Column(Integer)
+    Freight = Column(DECIMAL(10, 2), nullable=False)
+    ShipName = Column(String(8000))
+    ShipAddress = Column(String(8000))
+    ShipCity = Column(String(8000))
+    ShipRegion = Column(String(8000))
+    ShipPostalCode = Column(String(8000))
+    ShipCountry = Column(String(8000))
+    AmountTotal = Column(DECIMAL(10, 2))
+
 
 
 class Order(Base):
