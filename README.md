@@ -60,7 +60,7 @@ In your IDE or Command Line:
 # optionally fork, and then (WARNING - remove hyphens if you download the zip)
 git clone https://github.com/valhuber/LogicBankExamples.git
 cd LogicBankExamples
-# windows: python -m venv venv
+# windows may require: python -m venv venv
 # small venv: virtualenv --no-setuptools --no-wheel venv
 virtualenv venv
 # windows: .\venv\Scripts\activate
@@ -70,9 +70,10 @@ pip install -r requirements.txt
 > **Warning -** if you just download the zip, *be sure* to remove the hyphen from the name.
 
 Note the option for _small env_: ```virtualenv --no-setuptools --no-wheel venv```.
-For the _smallest_ environment, you can disable
-the requirements.txt line for ```Flask-AppBuilder```,
-which results in this:
+For the _smallest_ environment, you can also disable
+the the line for ```Flask-AppBuilder``` in ```requirements.txt```.
+This is _not_ recommended since you won't be able to run the web app,
+but you do get a small project like this:
 
 <figure><img src="images/eg-small.png" width="800"></figure>
 
