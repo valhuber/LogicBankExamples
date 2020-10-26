@@ -42,6 +42,7 @@ To install Python:
 * Python3.8 
 
    * Run the windows installer
+        * Suggestion: check the box to add Python to your path
    * On mac/Unix, consider [using homebrew](https://brew.sh/), as described
 [here](https://opensource.com/article/19/5/python-3-default-mac#what-to-do)
    
@@ -60,12 +61,20 @@ In your IDE or Command Line:
 git clone https://github.com/valhuber/LogicBankExamples.git
 cd LogicBankExamples
 # windows: python -m venv venv
+# small venv: virtualenv --no-setuptools --no-wheel venv
 virtualenv venv
 # windows: .\venv\Scripts\activate
 source venv/bin/activate
 pip install -r requirements.txt
 ```
 > **Warning -** if you just download the zip, *be sure* to remove the hyphen from the name.
+
+Note the option for _small env_: ```virtualenv --no-setuptools --no-wheel venv```.
+For the _smallest_ environment, you can disable
+the requirements.txt line for ```Flask-AppBuilder```,
+which results in this:
+
+<figure><img src="images/eg-small.png" width="800"></figure>
 
 #### Verify and Run
 
