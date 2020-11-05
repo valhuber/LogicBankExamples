@@ -53,7 +53,7 @@ db = SQLA(app)
 
 appbuilder = AppBuilder(app, db.session)
 
-create_api = True  # experiment (disabled)
+create_api = False  # experiment (disabled)
 
 if create_api:
     unparsedTables = dict([(name, cls) for name, cls in models.__dict__.items() if isinstance(cls, type)])
